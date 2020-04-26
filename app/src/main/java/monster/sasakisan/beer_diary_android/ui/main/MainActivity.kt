@@ -3,6 +3,7 @@ package monster.sasakisan.beer_diary_android.ui.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), HasAndroidInject
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
+
+//    findNavController(R.)
   }
 
   override fun androidInjector(): AndroidInjector<Any> {
