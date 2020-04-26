@@ -4,7 +4,6 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
-import dagger.android.support.DaggerApplication
 import monster.sasakisan.beer_diary_android.di.DaggerAppComponent
 import javax.inject.Inject
 
