@@ -1,13 +1,12 @@
 package monster.sasakisan.beer_diary_android.ui.main
 
-import monster.sasakisan.beer_diary_android.databinding.FragmentSecondBinding
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import dagger.android.support.AndroidSupportInjection
 import monster.sasakisan.beer_diary_android.R
-import monster.sasakisan.beer_diary_android.databinding.FragmentMainBinding
+import monster.sasakisan.beer_diary_android.databinding.FragmentSecondBinding
 import monster.sasakisan.beer_diary_android.util.bindView
 
 class SecondFragment : Fragment(R.layout.fragment_second) {
