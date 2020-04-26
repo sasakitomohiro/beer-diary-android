@@ -21,8 +21,4 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     AndroidSupportInjection.inject(this)
     super.onAttach(context)
   }
-
-  companion object {
-    fun newInstance() = MainFragment()
-  }
 }

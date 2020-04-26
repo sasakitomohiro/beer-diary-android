@@ -21,8 +21,4 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     AndroidSupportInjection.inject(this)
     super.onAttach(context)
   }
-
-  companion object {
-    fun newInstance() = SecondFragment()
-  }
 }
