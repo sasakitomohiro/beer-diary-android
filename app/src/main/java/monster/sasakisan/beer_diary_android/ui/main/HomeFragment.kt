@@ -6,11 +6,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import dagger.android.support.AndroidSupportInjection
 import monster.sasakisan.beer_diary_android.R
-import monster.sasakisan.beer_diary_android.databinding.FragmentMainBinding
+import monster.sasakisan.beer_diary_android.databinding.FragmentHomeBinding
 import monster.sasakisan.beer_diary_android.util.bindView
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
-  private lateinit var binding: FragmentMainBinding
+  private lateinit var binding: FragmentHomeBinding
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
