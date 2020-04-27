@@ -8,9 +8,9 @@
 
   <fragment
     android:id="@+id/first_fragment"
-    android:name="monster.sasakisan.beer_diary_android.ui.main.MainFragment"
+    android:name="monster.sasakisan.beer_diary_android.ui.main.HomeFragment"
     android:label="fragment_main"
-    tools:layout="@layout/fragment_main"
+    tools:layout="@layout/fragment_home"
     >
     <action
       android:id="@+id/action_main_to_second"

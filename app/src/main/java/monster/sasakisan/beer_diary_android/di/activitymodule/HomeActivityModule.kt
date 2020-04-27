@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import monster.sasakisan.beer_diary_android.ui.main.MainActivity
-import monster.sasakisan.beer_diary_android.ui.main.MainFragment
+import monster.sasakisan.beer_diary_android.ui.main.HomeActivity
+import monster.sasakisan.beer_diary_android.ui.main.HomeFragment
 import monster.sasakisan.beer_diary_android.ui.main.SecondFragment
 
 @Module
-interface MainActivityModule {
+interface HomeActivityModule {
   @Binds
-  fun bindsAppCompatActivity(activity: MainActivity): AppCompatActivity
+  fun bindsAppCompatActivity(activity: HomeActivity): AppCompatActivity
 
   @ContributesAndroidInjector
-  fun contributeMainFragment(): MainFragment
+  fun contributeHomeFragment(): HomeFragment
 
   @ContributesAndroidInjector
   fun contributeSecondFragment(): SecondFragment

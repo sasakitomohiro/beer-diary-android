@@ -9,7 +9,7 @@ import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.FragmentMainBinding
 import monster.sasakisan.beer_diary_android.util.bindView
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
   private lateinit var binding: FragmentMainBinding
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
