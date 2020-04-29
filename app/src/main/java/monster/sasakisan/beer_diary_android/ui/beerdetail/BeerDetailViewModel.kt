@@ -25,10 +25,21 @@ class BeerDetailViewModel(
   private val isSuccessMutableLiveData =  MutableLiveData<Boolean>()
   val isSuccess: LiveData<Boolean> = isSuccessMutableLiveData
 
+  private val diaryMutableLiveData =  MutableLiveData<Diary>()
+  val diary: LiveData<Diary> = diaryMutableLiveData
+
   fun add(diary: Diary) {
     viewModelScope.launch {
       runCatching { diaryRepository.add(diary) }
         .onSuccess { isSuccessMutableLiveData.postValue(true) }
+        .onFailure { isSuccessMutableLiveData.postValue(false) }
+    }
+  }
+
+  fun get(id: Long) {
+    viewModelScope.launch {
+      runCatching { diaryRepository.get(id) }
+        .onSuccess { diaryMutableLiveData.postValue(it) }
         .onFailure { isSuccessMutableLiveData.postValue(false) }
     }
   }

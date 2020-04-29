@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.DocumentsContract
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -20,6 +22,7 @@ import monster.sasakisan.beer_diary_android.model.Diary
 import monster.sasakisan.beer_diary_android.util.bindView
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.RuntimePermissions
+import java.io.File
 import java.io.InputStream
 import javax.inject.Inject
 
@@ -32,7 +35,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
   @Inject lateinit var viewModel: BeerDetailViewModel
 
-  private var memoryId = 0L
+  private var idaryid = 0L
   private var url = ""
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,12 +44,12 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
 
     initObserver()
 
-    memoryId = intent.getLongExtra(DIARY_ID, 0)
+    idaryid = intent.getLongExtra(DIARY_ID, 0)
 
-    if (memoryId == 0L) {
+    if (idaryid == 0L) {
       binding.image.load(R.drawable.placeholder)
     } else {
-//      viewModel
+      viewModel.get(idaryid)
     }
 
     binding.image.setOnClickListener {
@@ -78,7 +81,21 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
       var inputStream: InputStream? = null
       try {
         data?.data?.also { uri ->
-          url = uri.path ?: ""
+
+          val docId = DocumentsContract.getDocumentId(uri)
+          val split = docId.split(":")
+          val type = split[0]
+          val contentUri = MediaStore.Files.getContentUri("external")
+          val selection = "_id=?"
+          val selectionArgs = arrayOf(split[1])
+          val proj = arrayOf(MediaStore.Images.Media.DATA)
+          contentResolver.query(contentUri, proj, selection, selectionArgs, null)?.use {
+            if (it.moveToFirst()) {
+              val columnIndex = it.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+              url = it.getString(columnIndex)
+            }
+          }
+
           inputStream = contentResolver?.openInputStream(uri)
           val image = BitmapFactory.decodeStream(inputStream)
           binding.image.load(image) {
@@ -118,6 +135,17 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
         finish()
       } else {
         Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
+      }
+    })
+
+    viewModel.diary.observe(this, Observer {
+      binding.title.setText(it.title)
+      binding.content.setText(it.content)
+      url = it.url
+
+      binding.image.load(File(url)) {
+        placeholder(R.drawable.placeholder)
+        error(R.drawable.placeholder)
       }
     })
   }

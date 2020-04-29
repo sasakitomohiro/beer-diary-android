@@ -22,4 +22,7 @@ interface DiaryDao {
 
   @Query("SELECT * FROM diary")
   suspend fun getAll(): List<Diary>
+
+  @Query("select * FROM diary where id == :id LIMIT 1")
+  suspend fun get(id: Long): Diary
 }

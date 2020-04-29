@@ -21,7 +21,7 @@ class BeerItem(
 
     val context = viewBinding.root.context
     viewBinding.root.setOnClickListener {
-      context.startActivity(BeerDetailActivity.createIntent(context))
+      context.startActivity(BeerDetailActivity.createIntent(context, 1))
     }
   }
 

@@ -8,4 +8,8 @@ class DiaryRepository @Inject constructor(private val diaryDao: DiaryDao) {
   suspend fun add(diary: Diary) {
     diaryDao.add(diary.convertToDao())
   }
+
+  suspend fun get(id: Long): Diary {
+    return Diary.convert(diaryDao.get(id))
+  }
 }
