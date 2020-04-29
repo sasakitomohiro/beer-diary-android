@@ -6,14 +6,14 @@
   app:startDestination="@id/navigation_home"
   >
 
-  <fragment
+  <custom_fragment
     android:id="@+id/navigation_home"
     android:name="monster.sasakisan.beer_diary_android.ui.home.HomeFragment"
     android:label="fragment_home"
     tools:layout="@layout/fragment_home"
     />
 
-  <fragment
+  <custom_fragment
     android:id="@+id/navigation_settings"
     android:name="monster.sasakisan.beer_diary_android.ui.home.SecondFragment"
     android:label="fragment_second"

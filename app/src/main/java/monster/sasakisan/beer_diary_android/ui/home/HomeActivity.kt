@@ -2,7 +2,6 @@ package monster.sasakisan.beer_diary_android.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -10,6 +9,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ActivityHomeBinding
+import monster.sasakisan.beer_diary_android.ui.common.CustomNavHostFragment
 import monster.sasakisan.beer_diary_android.util.bindView
 import javax.inject.Inject
 
@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), HasAndroidInject
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
-    val navHostFragment = supportFragmentManager.findFragmentById(binding.container.id) as NavHostFragment
+    val navHostFragment = supportFragmentManager.findFragmentById(binding.container.id) as CustomNavHostFragment
     binding.nav.setupWithNavController(navHostFragment.navController)
   }
 

@@ -32,7 +32,7 @@
 
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/container"
-      android:name="androidx.navigation.fragment.NavHostFragment"
+      android:name="monster.sasakisan.beer_diary_android.ui.common.CustomNavHostFragment"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       app:defaultNavHost="true"
