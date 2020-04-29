@@ -8,7 +8,7 @@
 
   <fragment
     android:id="@+id/first_fragment"
-    android:name="monster.sasakisan.beer_diary_android.ui.main.HomeFragment"
+    android:name="monster.sasakisan.beer_diary_android.ui.home.HomeFragment"
     android:label="fragment_main"
     tools:layout="@layout/fragment_home"
     >
@@ -20,7 +20,7 @@
 
   <fragment
     android:id="@+id/second_fragment"
-    android:name="monster.sasakisan.beer_diary_android.ui.main.SecondFragment"
+    android:name="monster.sasakisan.beer_diary_android.ui.home.SecondFragment"
     android:label="fragment_second"
     tools:layout="@layout/fragment_second"
     >

@@ -1,4 +1,4 @@
-package monster.sasakisan.beer_diary_android.ui.main
+package monster.sasakisan.beer_diary_android.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

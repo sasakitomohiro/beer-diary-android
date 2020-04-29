@@ -1,4 +1,4 @@
-package monster.sasakisan.beer_diary_android.ui.main
+package monster.sasakisan.beer_diary_android.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

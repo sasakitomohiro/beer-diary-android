@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import monster.sasakisan.beer_diary_android.ui.main.HomeActivity
-import monster.sasakisan.beer_diary_android.ui.main.HomeFragment
-import monster.sasakisan.beer_diary_android.ui.main.SecondFragment
+import monster.sasakisan.beer_diary_android.ui.home.HomeActivity
+import monster.sasakisan.beer_diary_android.ui.home.HomeFragment
+import monster.sasakisan.beer_diary_android.ui.home.SecondFragment
 
 @Module
 interface HomeActivityModule {
