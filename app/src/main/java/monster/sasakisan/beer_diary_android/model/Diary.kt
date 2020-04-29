@@ -6,14 +6,16 @@ data class Diary(
   val id: Long = 0,
   val title: String,
   val content: String,
-  val url: String
+  val url: String,
+  val starCount: Float
 ) {
   fun convertToDao(): DiaryDbModel {
     return DiaryDbModel(
       id = id,
       title = title,
       content = content,
-      imageUrl = url
+      imageUrl = url,
+      starCount = starCount
     )
   }
 
@@ -23,7 +25,8 @@ data class Diary(
         id = diary.id,
         title = diary.title,
         content = diary.content,
-        url = diary.imageUrl
+        url = diary.imageUrl,
+        starCount = diary.starCount
       )
     }
   }

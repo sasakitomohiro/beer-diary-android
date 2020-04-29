@@ -19,6 +19,7 @@ class BeerItem(
       placeholder(R.drawable.placeholder)
       error(R.drawable.placeholder)
     }
+    viewBinding.ratingBar.rating = diary.starCount
 
     val context = viewBinding.root.context
     viewBinding.root.setOnClickListener {

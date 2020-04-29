@@ -13,7 +13,8 @@ data class Diary(
   @PrimaryKey(autoGenerate = true) val id: Long = 0,
   val title: String,
   val content: String,
-  @ColumnInfo(name = "image_url") val imageUrl: String
+  @ColumnInfo(name = "image_url") val imageUrl: String,
+  @ColumnInfo(name = "star_count") val starCount: Float
 )
 
 @Dao

@@ -63,7 +63,8 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
           id = diaryId,
           title = binding.title.text.toString(),
           content = binding.content.text.toString(),
-          url = url
+          url = url,
+          starCount = binding.rating.rating
         )
       )
     }
