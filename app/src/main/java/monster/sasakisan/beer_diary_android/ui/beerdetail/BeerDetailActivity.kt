@@ -115,6 +115,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     viewModel.isSuccess.observe(this, Observer {
       if (it) {
         Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+        finish()
       } else {
         Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
       }
