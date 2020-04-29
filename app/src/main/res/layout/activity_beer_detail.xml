@@ -13,11 +13,11 @@
     >
 
     <Button
-      android:id="@+id/save"
+      android:id="@+id/edit"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:background="@color/colorAccent"
-      android:text="@string/save"
+      android:text="@string/edit"
       android:textColor="@android:color/white"
       android:textSize="18sp"
       app:layout_constraintBottom_toTopOf="@id/scroll_view"
@@ -33,7 +33,7 @@
       android:layout_height="0dp"
       android:layout_marginTop="10dp"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/save"
+      app:layout_constraintTop_toBottomOf="@id/edit"
       >
 
       <LinearLayout
@@ -58,24 +58,39 @@
           android:layout_gravity="center"
           android:layout_marginBottom="10dp"
           android:layout_marginTop="10dp"
+          android:isIndicator="true"
           android:numStars="5"
           />
 
-        <EditText
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="タイトル"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          />
+
+        <TextView
           android:id="@+id/title"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="@string/title"
-          android:background="@drawable/edit_text_background"
+          tools:text="タイトル"
           />
 
-        <EditText
-          android:id="@+id/content"
+        <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
-          android:hint="@string/main_content"
-          android:background="@drawable/edit_text_background"
+          android:text="本文"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          />
+
+        <TextView
+          android:id="@+id/content"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          tools:text="本文"
           />
       </LinearLayout>
     </ScrollView>
