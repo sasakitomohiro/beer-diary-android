@@ -11,6 +11,7 @@ import com.xwray.groupie.GroupieViewHolder
 import dagger.android.support.AndroidSupportInjection
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.FragmentHomeBinding
+import monster.sasakisan.beer_diary_android.ui.beerdetail.BeerDetailActivity
 import monster.sasakisan.beer_diary_android.util.bindView
 import javax.inject.Inject
 
@@ -38,6 +39,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       adapter = beerAdapter
       layoutManager = GridLayoutManager(context, beerAdapter.spanCount)
     }
+
+    binding.addButton.setOnClickListener {
+      startActivity(BeerDetailActivity.createIntent(requireContext()))
+    }
   }
 
   override fun onResume() {
@@ -50,6 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     })
     viewModel.diaryItems.observe(viewLifecycleOwner, Observer {
+      beerAdapter.clear()
       val items = it.map {
         BeerItem(it)
       }

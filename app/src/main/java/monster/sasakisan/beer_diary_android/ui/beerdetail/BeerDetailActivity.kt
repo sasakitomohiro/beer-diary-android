@@ -35,7 +35,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
   @Inject lateinit var viewModel: BeerDetailViewModel
 
-  private var idaryid = 0L
+  private var diaryId = 0L
   private var url = ""
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,12 +44,12 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
 
     initObserver()
 
-    idaryid = intent.getLongExtra(DIARY_ID, 0)
+    diaryId = intent.getLongExtra(DIARY_ID, 0)
 
-    if (idaryid == 0L) {
+    if (diaryId == 0L) {
       binding.image.load(R.drawable.placeholder)
     } else {
-      viewModel.get(idaryid)
+      viewModel.get(diaryId)
     }
 
     binding.image.setOnClickListener {
@@ -60,6 +60,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     binding.save.setOnClickListener {
       viewModel.add(
         Diary(
+          id = diaryId,
           title = binding.title.text.toString(),
           content = binding.content.text.toString(),
           url = url

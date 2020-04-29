@@ -10,6 +10,7 @@ data class Diary(
 ) {
   fun convertToDao(): DiaryDbModel {
     return DiaryDbModel(
+      id = id,
       title = title,
       content = content,
       imageUrl = url
