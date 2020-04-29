@@ -16,74 +16,65 @@
       android:id="@+id/save"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/save"
-      android:textSize="18sp"
-      android:textColor="@android:color/white"
       android:background="@color/colorAccent"
-      app:layout_constraintBottom_toTopOf="@id/image"
+      android:text="@string/save"
+      android:textColor="@android:color/white"
+      android:textSize="18sp"
+      app:layout_constraintBottom_toTopOf="@id/scroll_view"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintHorizontal_bias="1.0"
-      />
-
-    <ImageView
-      android:id="@+id/image"
-      android:layout_width="200dp"
-      android:layout_height="200dp"
-      android:layout_marginBottom="10dp"
-      app:layout_constraintBottom_toTopOf="@id/rating"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/save"
-      tools:src="@tools:sample/avatars"
-      />
-
-    <RatingBar
-      android:id="@+id/rating"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="10dp"
-      android:layout_marginTop="10dp"
-      android:numStars="5"
-      app:layout_constraintBottom_toTopOf="@id/title_scroll"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/image"
       />
 
     <ScrollView
-      android:id="@+id/title_scroll"
-      android:layout_width="match_parent"
-      android:layout_height="80dp"
-      android:layout_marginBottom="10dp"
-      app:layout_constraintBottom_toTopOf="@id/content_scroll"
-      app:layout_constraintTop_toBottomOf="@id/rating"
-      >
-
-      <EditText
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/title"
-        />
-    </ScrollView>
-
-    <ScrollView
-      android:id="@+id/content_scroll"
+      android:id="@+id/scroll_view"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_marginBottom="10dp"
+      android:layout_marginTop="10dp"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/title_scroll"
+      app:layout_constraintTop_toBottomOf="@id/save"
       >
 
-      <EditText
-        android:id="@+id/content"
+      <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/main_content"
-        />
+        >
+
+        <ImageView
+          android:id="@+id/image"
+          android:layout_width="200dp"
+          android:layout_height="200dp"
+          android:layout_gravity="center"
+          android:layout_marginBottom="10dp"
+          tools:src="@tools:sample/avatars"
+          />
+
+        <RatingBar
+          android:id="@+id/rating"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginBottom="10dp"
+          android:layout_marginTop="10dp"
+          android:numStars="5"
+          />
+
+        <EditText
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/title"
+          />
+
+        <EditText
+          android:id="@+id/content"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/main_content"
+          />
+      </LinearLayout>
     </ScrollView>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
