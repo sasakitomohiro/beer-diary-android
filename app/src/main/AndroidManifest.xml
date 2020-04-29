@@ -3,6 +3,8 @@
   package="monster.sasakisan.beer_diary_android"
   >
 
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
   <application
     android:name=".App"
     android:allowBackup="true"
@@ -19,6 +21,10 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity
+      android:name=".ui.beerdetail.BeerDetailActivity"
+      android:screenOrientation="portrait"
+      />
   </application>
 
 </manifest>

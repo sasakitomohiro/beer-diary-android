@@ -4,6 +4,7 @@ import coil.api.load
 import com.xwray.groupie.databinding.BindableItem
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ItemBeerBinding
+import monster.sasakisan.beer_diary_android.ui.beerdetail.BeerDetailActivity
 
 class BeerItem(
   val title: String,
@@ -16,6 +17,11 @@ class BeerItem(
     viewBinding.image.load(imageUrl) {
       placeholder(R.drawable.placeholder)
       error(R.drawable.placeholder)
+    }
+
+    val context = viewBinding.root.context
+    viewBinding.root.setOnClickListener {
+      context.startActivity(BeerDetailActivity.createIntent(context))
     }
   }
 
