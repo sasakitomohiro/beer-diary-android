@@ -9,7 +9,7 @@ import androidx.room.Query
 
 @Entity(tableName = "diary")
 data class Diary(
-  @PrimaryKey(autoGenerate = true) val id: Long,
+  @PrimaryKey(autoGenerate = true) val id: Long = 0,
   val title: String,
   val content: String,
   @ColumnInfo(name = "image_url") val imageUrl: String
@@ -18,8 +18,8 @@ data class Diary(
 @Dao
 interface DiaryDao {
   @Insert
-  fun add(diary: Diary)
+  suspend fun add(diary: Diary)
 
   @Query("SELECT * FROM diary")
-  fun getAll(): List<Diary>
+  suspend fun getAll(): List<Diary>
 }

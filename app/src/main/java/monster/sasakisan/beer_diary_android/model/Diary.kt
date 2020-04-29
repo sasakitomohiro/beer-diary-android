@@ -8,6 +8,14 @@ data class Diary(
   val content: String,
   val url: String
 ) {
+  fun convertToDao(): DiaryDbModel {
+    return DiaryDbModel(
+      title = title,
+      content = content,
+      imageUrl = url
+    )
+  }
+
   companion object {
     fun convert(diary: DiaryDbModel): Diary {
       return Diary(
