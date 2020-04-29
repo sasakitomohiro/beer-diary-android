@@ -3,7 +3,7 @@ package monster.sasakisan.beer_diary_android.model
 import monster.sasakisan.beer_diary_android.db.model.Diary as DiaryDbModel
 
 data class Diary(
-  val id: Long,
+  val id: Long = 0,
   val title: String,
   val content: String,
   val url: String

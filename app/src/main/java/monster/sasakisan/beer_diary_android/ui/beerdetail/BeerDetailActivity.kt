@@ -6,7 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import coil.api.load
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -14,6 +16,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ActivityBeerDetailBinding
+import monster.sasakisan.beer_diary_android.model.Diary
 import monster.sasakisan.beer_diary_android.util.bindView
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.RuntimePermissions
@@ -30,10 +33,13 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   @Inject lateinit var viewModel: BeerDetailViewModel
 
   private var memoryId = 0L
+  private var url = ""
 
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
+
+    initObserver()
 
     memoryId = intent.getLongExtra(DIARY_ID, 0)
 
@@ -45,6 +51,17 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
 
     binding.image.setOnClickListener {
       selectPhotoWithPermissionCheck()
+    }
+
+
+    binding.save.setOnClickListener {
+      viewModel.add(
+        Diary(
+          title = binding.title.text.toString(),
+          content = binding.content.text.toString(),
+          url = url
+        )
+      )
     }
   }
 
@@ -61,6 +78,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
       var inputStream: InputStream? = null
       try {
         data?.data?.also { uri ->
+          url = uri.path ?: ""
           inputStream = contentResolver?.openInputStream(uri)
           val image = BitmapFactory.decodeStream(inputStream)
           binding.image.load(image) {
@@ -91,6 +109,16 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
       type = "image/*"
     }
     startActivityForResult(intent, IMAGE_SELECT_REQUEST_CODE)
+  }
+
+  private fun initObserver() {
+    viewModel.isSuccess.observe(this, Observer {
+      if (it) {
+        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+      } else {
+        Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
+      }
+    })
   }
 
   companion object {
