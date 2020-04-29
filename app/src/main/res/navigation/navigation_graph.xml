@@ -9,11 +9,11 @@
   <fragment
     android:id="@+id/first_fragment"
     android:name="monster.sasakisan.beer_diary_android.ui.home.HomeFragment"
-    android:label="fragment_main"
+    android:label="fragment_home"
     tools:layout="@layout/fragment_home"
     >
     <action
-      android:id="@+id/action_main_to_second"
+      android:id="@+id/action_home_to_second"
       app:destination="@id/second_fragment"
       />
   </fragment>
@@ -25,7 +25,7 @@
     tools:layout="@layout/fragment_second"
     >
     <action
-      android:id="@+id/action_second_to_main"
+      android:id="@+id/action_second_to_home"
       app:destination="@id/first_fragment"
       />
   </fragment>
