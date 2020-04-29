@@ -2,6 +2,8 @@ package monster.sasakisan.beer_diary_android.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -20,7 +22,8 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), HasAndroidInject
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
-//    findNavController(R.)
+    val navHostFragment = supportFragmentManager.findFragmentById(binding.container.id) as NavHostFragment
+    binding.nav.setupWithNavController(navHostFragment.navController)
   }
 
   override fun androidInjector(): AndroidInjector<Any> {
