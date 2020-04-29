@@ -8,4 +8,9 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="android:textColor">@color/colorAccent</item>
+    <item name="android:textSize">12sp</item>
+  </style>
+
 </resources>
