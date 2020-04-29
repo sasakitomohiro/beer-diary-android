@@ -9,14 +9,14 @@
   <custom_fragment
     android:id="@+id/navigation_home"
     android:name="monster.sasakisan.beer_diary_android.ui.home.HomeFragment"
-    android:label="fragment_home"
+    android:label="ホーム"
     tools:layout="@layout/fragment_home"
     />
 
   <custom_fragment
     android:id="@+id/navigation_settings"
     android:name="monster.sasakisan.beer_diary_android.ui.home.SecondFragment"
-    android:label="fragment_second"
+    android:label="設定"
     tools:layout="@layout/fragment_second"
     />
 

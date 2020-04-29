@@ -2,6 +2,8 @@ package monster.sasakisan.beer_diary_android.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -21,9 +23,12 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), HasAndroidInject
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
+    setSupportActionBar(binding.toolBar)
 
     val navHostFragment = supportFragmentManager.findFragmentById(binding.container.id) as CustomNavHostFragment
     binding.nav.setupWithNavController(navHostFragment.navController)
+    val configuration = AppBarConfiguration(navHostFragment.navController.graph)
+    setupActionBarWithNavController(navHostFragment.navController, configuration)
   }
 
   override fun androidInjector(): AndroidInjector<Any> {
