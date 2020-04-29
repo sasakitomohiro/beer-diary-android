@@ -15,9 +15,9 @@
 
   <custom_fragment
     android:id="@+id/navigation_settings"
-    android:name="monster.sasakisan.beer_diary_android.ui.home.SecondFragment"
+    android:name="monster.sasakisan.beer_diary_android.ui.home.SettingsFragment"
     android:label="設定"
-    tools:layout="@layout/fragment_second"
+    tools:layout="@layout/fragment_settings"
     />
 
 </navigation>

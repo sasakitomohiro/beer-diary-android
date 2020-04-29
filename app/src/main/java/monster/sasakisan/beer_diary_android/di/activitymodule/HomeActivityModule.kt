@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import monster.sasakisan.beer_diary_android.ui.home.HomeActivity
 import monster.sasakisan.beer_diary_android.ui.home.HomeFragment
-import monster.sasakisan.beer_diary_android.ui.home.SecondFragment
+import monster.sasakisan.beer_diary_android.ui.home.SettingsFragment
 
 @Module
 interface HomeActivityModule {
@@ -17,5 +17,5 @@ interface HomeActivityModule {
   fun contributeHomeFragment(): HomeFragment
 
   @ContributesAndroidInjector
-  fun contributeSecondFragment(): SecondFragment
+  fun contributeSettingsFragment(): SettingsFragment
 }
