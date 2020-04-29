@@ -15,6 +15,7 @@ import javax.inject.Singleton
     AndroidInjectionModule::class,
     AppModule::class,
     RoomModule::class,
+    RepositoryModule::class,
     HomeActivityBuilder::class,
     BeerDetailActivityBuilder::class
   ]
