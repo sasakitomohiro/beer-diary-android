@@ -4,4 +4,6 @@
   <color name="colorPrimaryDark">#FFC107</color>
   <color name="colorAccent">#FF8400</color>
   <color name="colorText">#F1F1F1</color>
+
+  <color name="colorEditTextBackground">#FFFAD7</color>
 </resources>
