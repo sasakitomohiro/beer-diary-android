@@ -11,7 +11,7 @@ import com.xwray.groupie.GroupieViewHolder
 import dagger.android.support.AndroidSupportInjection
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.FragmentHomeBinding
-import monster.sasakisan.beer_diary_android.ui.beerdetail.BeerDetailActivity
+import monster.sasakisan.beer_diary_android.ui.beerdiaryeditor.BeerDiaryEditorActivity
 import monster.sasakisan.beer_diary_android.util.bindView
 import javax.inject.Inject
 
@@ -41,7 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     binding.addButton.setOnClickListener {
-      startActivity(BeerDetailActivity.createIntent(requireContext()))
+      startActivity(BeerDiaryEditorActivity.createIntent(requireContext()))
     }
   }
 

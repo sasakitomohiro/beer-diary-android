@@ -6,6 +6,7 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import monster.sasakisan.beer_diary_android.App
 import monster.sasakisan.beer_diary_android.di.activitymodule.BeerDetailActivityBuilder
+import monster.sasakisan.beer_diary_android.di.activitymodule.BeerDiaryEditorActivityBuilder
 import monster.sasakisan.beer_diary_android.di.activitymodule.HomeActivityBuilder
 import javax.inject.Singleton
 
@@ -17,7 +18,8 @@ import javax.inject.Singleton
     RoomModule::class,
     RepositoryModule::class,
     HomeActivityBuilder::class,
-    BeerDetailActivityBuilder::class
+    BeerDetailActivityBuilder::class,
+    BeerDiaryEditorActivityBuilder::class
   ]
 )
 interface AppComponent : AndroidInjector<App> {
