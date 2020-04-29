@@ -35,7 +35,7 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
-    memoryId = intent.getLongExtra(MEMORY_ID, 0)
+    memoryId = intent.getLongExtra(DIARY_ID, 0)
 
     if (memoryId == 0L) {
       binding.image.load(R.drawable.placeholder)
@@ -96,12 +96,12 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   companion object {
     private const val IMAGE_SELECT_REQUEST_CODE = 1
 
-    private const val MEMORY_ID = "MEMORY_ID"
+    private const val DIARY_ID = "MEMORY_ID"
 
     fun createIntent(context: Context): Intent = Intent(context, BeerDetailActivity::class.java)
 
     fun createIntent(context: Context, id: Long): Intent = Intent(context, BeerDetailActivity::class.java).apply {
-      putExtra(MEMORY_ID, id)
+      putExtra(DIARY_ID, id)
     }
   }
 }
