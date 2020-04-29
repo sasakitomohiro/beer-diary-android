@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.DocumentsContract
 import android.provider.MediaStore
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -143,13 +144,22 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     viewModel.diary.observe(this, Observer {
       binding.title.setText(it.title)
       binding.content.setText(it.content)
+      binding.rating.rating = it.starCount
       url = it.url
-
       binding.image.load(File(url)) {
         placeholder(R.drawable.placeholder)
         error(R.drawable.placeholder)
       }
     })
+  }
+
+  private fun hideKeyboard() {
+    val inputMethodManager =
+      getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(
+      currentFocus?.windowToken,
+      InputMethodManager.HIDE_NOT_ALWAYS
+    )
   }
 
   companion object {

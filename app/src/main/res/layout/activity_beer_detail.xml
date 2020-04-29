@@ -8,17 +8,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     >
+
+    <Button
+      android:id="@+id/save"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/save"
+      app:layout_constraintBottom_toTopOf="@id/image"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      />
 
     <ImageView
       android:id="@+id/image"
       android:layout_width="200dp"
       android:layout_height="200dp"
       android:layout_marginBottom="10dp"
-      app:layout_constraintBottom_toTopOf="@id/title_scroll"
+      app:layout_constraintBottom_toTopOf="@id/rating"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/save"
       tools:src="@tools:sample/avatars"
       />
 
@@ -57,7 +71,7 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_marginBottom="10dp"
-      app:layout_constraintBottom_toTopOf="@id/save"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintTop_toBottomOf="@id/title_scroll"
       >
 
@@ -68,17 +82,6 @@
         android:hint="@string/main_content"
         />
     </ScrollView>
-
-    <Button
-      android:id="@+id/save"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/save"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/content_scroll"
-      />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
