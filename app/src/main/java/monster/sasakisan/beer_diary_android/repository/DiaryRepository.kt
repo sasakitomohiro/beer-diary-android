@@ -12,4 +12,10 @@ class DiaryRepository @Inject constructor(private val diaryDao: DiaryDao) {
   suspend fun get(id: Long): Diary {
     return Diary.convert(diaryDao.get(id))
   }
+
+  suspend fun getAll(): List<Diary> {
+    return diaryDao.getAll().map {
+      Diary.convert(it)
+    }
+  }
 }
