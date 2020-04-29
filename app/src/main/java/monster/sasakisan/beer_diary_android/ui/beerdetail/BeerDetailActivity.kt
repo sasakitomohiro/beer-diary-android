@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.api.load
-import coil.transform.CircleCropTransformation
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -30,11 +29,20 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
   @Inject lateinit var viewModel: BeerDetailViewModel
 
+  private var memoryId = 0L
+
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
-    binding.image.load(R.drawable.placeholder)
+    memoryId = intent.getLongExtra(MEMORY_ID, 0)
+
+    if (memoryId == 0L) {
+      binding.image.load(R.drawable.placeholder)
+    } else {
+//      viewModel
+    }
+
     binding.image.setOnClickListener {
       selectPhotoWithPermissionCheck()
     }
@@ -88,6 +96,12 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
   companion object {
     private const val IMAGE_SELECT_REQUEST_CODE = 1
 
+    private const val MEMORY_ID = "MEMORY_ID"
+
     fun createIntent(context: Context): Intent = Intent(context, BeerDetailActivity::class.java)
+
+    fun createIntent(context: Context, id: Long): Intent = Intent(context, BeerDetailActivity::class.java).apply {
+      putExtra(MEMORY_ID, id)
+    }
   }
 }
