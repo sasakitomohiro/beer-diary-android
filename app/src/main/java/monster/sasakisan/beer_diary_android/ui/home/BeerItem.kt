@@ -1,7 +1,8 @@
 package monster.sasakisan.beer_diary_android.ui.home
 
+import android.view.View
 import coil.api.load
-import com.xwray.groupie.databinding.BindableItem
+import com.xwray.groupie.viewbinding.BindableItem
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ItemBeerBinding
 import monster.sasakisan.beer_diary_android.model.Diary
@@ -12,6 +13,8 @@ class BeerItem(
   val diary: Diary
 ) : BindableItem<ItemBeerBinding>() {
   override fun getLayout(): Int = R.layout.item_beer
+
+  override fun initializeViewBinding(view: View): ItemBeerBinding = ItemBeerBinding.bind(view)
 
   override fun bind(viewBinding: ItemBeerBinding, position: Int) {
     viewBinding.title.text = diary.title
