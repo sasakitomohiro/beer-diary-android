@@ -1,3 +1,7 @@
 <resources>
   <string name="app_name">beer-diary-android</string>
+
+  <string name="title">タイトル</string>
+  <string name="main_content">本文</string>
+  <string name="save">保存</string>
 </resources>

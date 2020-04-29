@@ -35,7 +35,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="タイトル"
+        android:hint="@string/title"
         />
     </ScrollView>
 
@@ -52,7 +52,7 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="本文"
+        android:hint="@string/main_content"
         />
     </ScrollView>
 
@@ -60,7 +60,7 @@
       android:id="@+id/save"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="保存"
+      android:text="@string/save"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
