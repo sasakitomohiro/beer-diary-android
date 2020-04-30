@@ -68,8 +68,8 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     })
 
     viewModel.diary.observe(this, Observer {
-      binding.title.setText(it.title)
-      binding.content.setText(it.content)
+      binding.title.text = it.title
+      binding.content.text = it.content
       binding.rating.rating = it.starCount
       url = it.url
       binding.image.load(File(url)) {
