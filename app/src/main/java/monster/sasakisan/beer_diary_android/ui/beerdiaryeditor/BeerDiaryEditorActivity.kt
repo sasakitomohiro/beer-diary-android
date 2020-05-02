@@ -170,7 +170,9 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
 
     fun createIntent(context: Context): Intent = Intent(context, BeerDiaryEditorActivity::class.java)
 
-    fun createIntent(context: Context, id: Long): Intent = Intent(context, BeerDiaryEditorActivity::class.java).apply {
+    fun createIntent(
+      context: Context, id: Long
+    ): Intent = Intent(context, BeerDiaryEditorActivity::class.java).apply {
       putExtra(DIARY_ID, id)
     }
   }
