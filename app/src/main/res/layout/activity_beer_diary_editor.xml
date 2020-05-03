@@ -65,8 +65,8 @@
           android:id="@+id/title"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="@string/title"
           android:background="@drawable/edit_text_background"
+          android:hint="@string/title"
           />
 
         <EditText
@@ -74,8 +74,8 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
-          android:hint="@string/main_content"
           android:background="@drawable/edit_text_background"
+          android:hint="@string/main_content"
           />
       </LinearLayout>
     </ScrollView>
