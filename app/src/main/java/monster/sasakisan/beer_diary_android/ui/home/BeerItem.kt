@@ -30,7 +30,5 @@ class BeerItem(
     }
   }
 
-  override fun getSpanSize(spanCount: Int, position: Int): Int {
-    return 1
-  }
+  override fun getSpanSize(spanCount: Int, position: Int): Int = 1
 }

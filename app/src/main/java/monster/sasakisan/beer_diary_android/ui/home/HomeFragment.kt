@@ -59,7 +59,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       val items = it.map {
         BeerItem(it)
       }
-
       beerAdapter.update(items)
     })
   }
