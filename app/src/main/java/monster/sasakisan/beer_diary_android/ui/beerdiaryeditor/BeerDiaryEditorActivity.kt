@@ -30,9 +30,7 @@ import javax.inject.Inject
 @RuntimePermissions
 class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_editor),
   HasAndroidInjector {
-  private val binding: ActivityBeerDiaryEditorBinding by lazy {
-    bindView<ActivityBeerDiaryEditorBinding>()
-  }
+  private val binding: ActivityBeerDiaryEditorBinding by lazy { bindView() }
 
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
   @Inject lateinit var viewModel: BeerDiaryEditorViewModel

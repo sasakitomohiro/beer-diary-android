@@ -16,7 +16,7 @@ import monster.sasakisan.beer_diary_android.util.bindView
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(R.layout.activity_home), HasAndroidInjector {
-  private val binding by lazy { bindView<ActivityHomeBinding>() }
+  private val binding: ActivityHomeBinding by lazy { bindView() }
 
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
