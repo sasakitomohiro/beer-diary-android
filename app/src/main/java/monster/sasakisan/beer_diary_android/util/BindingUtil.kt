@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 fun <T : ViewDataBinding> ComponentActivity.bindView(): T =
   DataBindingUtil.bind(getContentView())!!
 
-private fun Activity.getContentView(): View =
-  findViewById<ViewGroup>(android.R.id.content)[0]
+private fun Activity.getContentView(): View = findViewById<ViewGroup>(android.R.id.content)[0]
 
 fun <T : ViewDataBinding> Fragment.bindView(): T = DataBindingUtil.bind(view!!)!!
