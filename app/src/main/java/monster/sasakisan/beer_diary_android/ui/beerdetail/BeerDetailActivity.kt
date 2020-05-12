@@ -20,7 +20,7 @@ import java.io.File
 import javax.inject.Inject
 
 class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), HasAndroidInjector {
-  private val binding: ActivityBeerDetailBinding by lazy { bindView() }
+  private val binding: ActivityBeerDetailBinding by lazy { bindView<ActivityBeerDetailBinding>() }
 
   @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
   @Inject lateinit var viewModel: BeerDetailViewModel
