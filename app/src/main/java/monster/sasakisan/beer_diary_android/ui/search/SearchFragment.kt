@@ -11,9 +11,12 @@ import dagger.android.support.AndroidSupportInjection
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.FragmentSearchBinding
 import monster.sasakisan.beer_diary_android.util.bindView
+import javax.inject.Inject
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
   private lateinit var binding: FragmentSearchBinding
+
+  @Inject lateinit var viewModel: SearchViewModel
 
   val onBackPressedCallback = object : OnBackPressedCallback(true) {
     override fun handleOnBackPressed() {

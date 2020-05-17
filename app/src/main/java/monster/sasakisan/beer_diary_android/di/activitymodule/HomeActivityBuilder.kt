@@ -8,7 +8,8 @@ import monster.sasakisan.beer_diary_android.ui.home.HomeActivity
 interface HomeActivityBuilder {
   @ContributesAndroidInjector(modules = [
     HomeActivityModule::class,
-    HomeViewModelModule::class
+    HomeViewModelModule::class,
+    SearchViewModelModule::class
   ])
   fun contributeHomeActivity(): HomeActivity
 }
