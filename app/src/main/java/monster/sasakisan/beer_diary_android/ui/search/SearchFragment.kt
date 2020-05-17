@@ -18,18 +18,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
   @Inject lateinit var viewModel: SearchViewModel
 
-  val onBackPressedCallback = object : OnBackPressedCallback(true) {
-    override fun handleOnBackPressed() {
-      backToHome()
-    }
-  }
-
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding = bindView()
     setHasOptionsMenu(true)
-
-    requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
   }
 
   override fun onAttach(context: Context) {
@@ -46,7 +38,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
   // TODO: refactor
   private fun backToHome() {
-    onBackPressedCallback.isEnabled = false
     findNavController().navigate(R.id.action_search_to_home)
   }
 }
