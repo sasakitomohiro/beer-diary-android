@@ -1,4 +1,4 @@
-package monster.sasakisan.beer_diary_android.ui.home
+package monster.sasakisan.beer_diary_android.ui.settings
 
 import android.content.Context
 import android.os.Bundle

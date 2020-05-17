@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import monster.sasakisan.beer_diary_android.ui.home.HomeActivity
 import monster.sasakisan.beer_diary_android.ui.home.HomeFragment
-import monster.sasakisan.beer_diary_android.ui.home.SettingsFragment
+import monster.sasakisan.beer_diary_android.ui.settings.SettingsFragment
 import monster.sasakisan.beer_diary_android.ui.search.SearchFragment
 
 @Module
