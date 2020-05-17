@@ -2,6 +2,9 @@ package monster.sasakisan.beer_diary_android.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -31,6 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+    setHasOptionsMenu(true)
     binding = bindView()
 
     initObserver()
@@ -49,6 +53,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     super.onResume()
     viewModel.getAll()
   }
+
+  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    inflater.inflate(R.menu.menu_home, menu)
+    super.onCreateOptionsMenu(menu, inflater)
+  }
+
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    when (item.itemId) {
+      R.id.search -> {
+        TODO("implements search logic")
+      }
+    }
+    return super.onOptionsItemSelected(item)
+  }
+
+
 
   private fun initObserver() {
     viewModel.isSuccess.observe(viewLifecycleOwner, Observer {
