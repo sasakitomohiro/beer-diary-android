@@ -10,25 +10,14 @@
     tools:context=".ui.home.HomeActivity"
     >
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/tool_bar"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
       android:background="@color/colorPrimary"
       app:layout_constraintBottom_toTopOf="@id/container"
       app:layout_constraintTop_toTopOf="parent"
-      >
-
-      <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:textColor="@color/colorText"
-        android:textStyle="bold"
-        tools:text="トップ"
-        />
-    </androidx.appcompat.widget.Toolbar>
+      />
 
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/container"
