@@ -10,8 +10,13 @@
     android:id="@+id/navigation_home"
     android:name="monster.sasakisan.beer_diary_android.ui.home.HomeFragment"
     android:label="ホーム"
+    app:defaultNavHost="true"
     tools:layout="@layout/fragment_home"
-    />
+    >
+    <action
+      android:id="@+id/action_home_to_search"
+      app:destination="@id/navigation_search"/>
+  </custom_fragment>
 
   <custom_fragment
     android:id="@+id/navigation_settings"
@@ -20,4 +25,15 @@
     tools:layout="@layout/fragment_settings"
     />
 
+  <custom_fragment
+    android:id="@+id/navigation_search"
+    android:name="monster.sasakisan.beer_diary_android.ui.search.SearchFragment"
+    android:label="検索"
+    tools:layout="@layout/fragment_search"
+    >
+    <action
+      android:id="@+id/action_search_to_home"
+      app:destination="@id/navigation_home"
+      />
+  </custom_fragment>
 </navigation>

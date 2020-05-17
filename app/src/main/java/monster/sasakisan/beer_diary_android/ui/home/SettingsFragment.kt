@@ -21,6 +21,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding = bindView()
+    requireActivity().actionBar?.setDisplayShowHomeEnabled(false)
+    requireActivity().actionBar?.setDisplayHomeAsUpEnabled(false)
+    setHasOptionsMenu(true)
 
     with(binding.recyclerView) {
       adapter = settingsAdapter

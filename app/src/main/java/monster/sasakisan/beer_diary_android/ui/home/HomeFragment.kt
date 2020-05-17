@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -62,7 +63,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
       R.id.search -> {
-        TODO("implements search logic")
+        findNavController().navigate(R.id.action_home_to_search)
       }
     }
     return super.onOptionsItemSelected(item)
