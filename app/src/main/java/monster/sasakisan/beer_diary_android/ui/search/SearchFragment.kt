@@ -34,8 +34,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
     return super.onOptionsItemSelected(item)
   }
-
-  // TODO: refactor
+  
   private fun backToHome() {
     findNavController().navigate(R.id.action_search_to_home)
   }
