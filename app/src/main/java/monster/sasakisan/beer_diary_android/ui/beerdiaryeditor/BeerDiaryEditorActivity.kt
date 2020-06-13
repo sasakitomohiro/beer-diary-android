@@ -10,6 +10,7 @@ import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.api.load
@@ -21,13 +22,10 @@ import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ActivityBeerDiaryEditorBinding
 import monster.sasakisan.beer_diary_android.model.Diary
 import monster.sasakisan.beer_diary_android.util.bindView
-import permissions.dispatcher.NeedsPermission
-import permissions.dispatcher.RuntimePermissions
 import java.io.File
 import java.io.InputStream
 import javax.inject.Inject
 
-@RuntimePermissions
 class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_editor),
   HasAndroidInjector {
   private val binding: ActivityBeerDiaryEditorBinding by lazy { bindView<ActivityBeerDiaryEditorBinding>() }
@@ -37,6 +35,14 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
 
   private var diaryId = 0L
   private var url = ""
+
+  private val requestPermission = registerForActivityResult(
+          ActivityResultContracts.RequestPermission()
+  ) { grants ->
+    if (grants) {
+      selectPhoto()
+    }
+  }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
@@ -53,7 +59,7 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
     }
 
     binding.image.setOnClickListener {
-      selectPhotoWithPermissionCheck()
+      requestPermission.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
     }
 
 
@@ -112,17 +118,7 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
     }
   }
 
-  override fun onRequestPermissionsResult(
-    requestCode: Int,
-    permissions: Array<out String>,
-    grantResults: IntArray
-  ) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    onRequestPermissionsResult(requestCode, grantResults)
-  }
-
-  @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-  fun selectPhoto() {
+  private fun selectPhoto() {
     val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
       addCategory(Intent.CATEGORY_OPENABLE)
       type = "image/*"
