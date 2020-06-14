@@ -11,27 +11,23 @@ import android.provider.MediaStore
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.api.load
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import dagger.hilt.android.AndroidEntryPoint
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ActivityBeerDiaryEditorBinding
 import monster.sasakisan.beer_diary_android.model.Diary
 import monster.sasakisan.beer_diary_android.util.bindView
 import java.io.File
 import java.io.InputStream
-import javax.inject.Inject
 
-class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_editor),
-  HasAndroidInjector {
+@AndroidEntryPoint
+class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_editor) {
   private val binding: ActivityBeerDiaryEditorBinding by lazy { bindView<ActivityBeerDiaryEditorBinding>() }
 
-  @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
-  @Inject lateinit var viewModel: BeerDiaryEditorViewModel
+  private val viewModel by viewModels<BeerDiaryEditorViewModel>()
 
   private var diaryId = 0L
   private var url = ""
@@ -45,7 +41,6 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
     initObserver()
@@ -74,10 +69,6 @@ class BeerDiaryEditorActivity : AppCompatActivity(R.layout.activity_beer_diary_e
         )
       )
     }
-  }
-
-  override fun androidInjector(): AndroidInjector<Any> {
-    return androidInjector
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

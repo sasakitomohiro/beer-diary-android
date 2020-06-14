@@ -5,31 +5,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.api.load
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import dagger.hilt.android.AndroidEntryPoint
 import monster.sasakisan.beer_diary_android.R
 import monster.sasakisan.beer_diary_android.databinding.ActivityBeerDetailBinding
 import monster.sasakisan.beer_diary_android.ui.beerdiaryeditor.BeerDiaryEditorActivity
 import monster.sasakisan.beer_diary_android.util.bindView
 import java.io.File
-import javax.inject.Inject
 
-class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), HasAndroidInjector {
+@AndroidEntryPoint
+class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail) {
   private val binding: ActivityBeerDetailBinding by lazy { bindView<ActivityBeerDetailBinding>() }
 
-  @Inject lateinit var androidInjector: DispatchingAndroidInjector<Any>
-  @Inject lateinit var viewModel: BeerDetailViewModel
+  private val viewModel by viewModels<BeerDetailViewModel>()
 
   private var diaryId = 0L
   private var url = ""
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
 
     initObserver()
@@ -49,10 +45,6 @@ class BeerDetailActivity : AppCompatActivity(R.layout.activity_beer_detail), Has
     } else {
       viewModel.get(diaryId)
     }
-  }
-
-  override fun androidInjector(): AndroidInjector<Any> {
-    return androidInjector
   }
 
   private fun initObserver() {
